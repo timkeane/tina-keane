@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no">
+  <title>Howler.js Audio Player</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="back0" class="back"></div>
+  <div id="back1" class="back"></div>
+
+  <!-- Top Info -->
+  <div id="title" class="player">
+    <span id="track"></span>
+    <div id="timer"></div>
+    <div id="duration"></div>
+  </div>
+
+  <!-- Controls -->
+  <div class="controlsOuter player">
+    <div class="controlsInner">
+      <div id="loading"></div>
+      <div class="btn" id="playBtn"></div>
+      <div class="btn" id="pauseBtn"></div>
+      <div class="btn" id="prevBtn"></div>
+      <div class="btn" id="nextBtn"></div>
+    </div>
+    <div class="btn" id="playlistBtn"></div>
+    <div class="btn" id="volumeBtn"></div>
+  </div>
+
+  <!-- Progress -->
+  <div id="waveform" class="player"></div>
+  <div id="bar" class="player"></div>
+  <div id="progress" class="player"></div>
+
+  <!-- Playlist -->
+  <div id="playlist">
+    <a id="close"></a>
+    <div id="list"></div>
+  </div>
+
+  <!-- Volume -->
+  <div id="volume" class="fadeout">
+    <div id="barFull" class="bar"></div>
+    <div id="barEmpty" class="bar"></div>
+    <div id="sliderBtn"></div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="./howler.core.js"></script>
+  <script src="./siriwave.js"></script>
+  <script src="./player.js"></script>
+  <script src="./pictures.js"></script>
+</body>
+</html>

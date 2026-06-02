@@ -8,6 +8,7 @@
     "prebuild": "rm -rf ./dist"
   },
   "dependencies": {
+    "howler": "^2.2.4",
     "jquery": "^3.7.1",
     "papaparse": "^5.4.1"
   },

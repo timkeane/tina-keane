@@ -36,4 +36,4 @@ data.data.forEach(row => {
   addSong(lastBand, row);
 });
 
-writeFileSync('../public/data/music.json', JSON.stringify(music));
+writeFileSync('../public/data/music.json', JSON.stringify(music, null, 2));
