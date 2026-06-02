@@ -331,39 +331,50 @@ const pictures = [
 
 let i = 0;
 let back;
-let pct;
+let dir;
 let width;
+let slideCount = 0;
+const interval = 50;
+const speed = .15;
 
 function slide() {
-  let x;
-  if (back.id === 'back0') {
-    x = width * pct / 100;
+  slideCount = slideCount + 1;
+  const delta = speed * (2 * width / interval);
+  if (dir === 'right') {
+    x += delta;
   } else {
-    x = width - (width * pct / 100);
+    x -= delta;
   }
-  // console.warn({width,x,id:back.id});
+  // console.warn({width,x,dir});
   back.style.backgroundPositionX = x + 'px';
-  pct = pct + 1;
+  if (slideCount <= interval / speed) {
+    setTimeout(slide, interval);
+  } else {
+    setBackground();
+  }
 }
 
 function setBackground() {
   back = document.getElementById('back' + i);
   width = back.offsetWidth;
-  if (back.id === 'back0') {
-    pct = 1;
-  } else {
-    pct = 100;
-  }
   const idx = Math.floor(Math.random() * pictures.length);
   const pic = './img/' + encodeURIComponent(pictures[idx]);
   back.style.backgroundImage = `url(${pic})`;
-  back.style.zIndex = 0;
-  i = i === 0 ? 1 : 0;
-  document.getElementById('back' + i).style.zIndex = -1;
+  back.style.zIndex = '0';
+  if (i === 0) {
+    i = 1;
+    x = -width;
+    back.style.backgroundPositionX = `${x}px`;
+    dir = 'right';
+  } else {
+    i = 0;
+    x = width;
+    back.style.backgroundPositionX = `${x}px`;
+    dir = 'left';
+  }
+  document.getElementById('back' + i).style.zIndex = '-1';
+  slideCount = 0;
   slide();
-  setInterval(slide, 100);
 }
 
 setBackground();
-
-setInterval(setBackground, 10000);

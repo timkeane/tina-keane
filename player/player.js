@@ -249,12 +249,10 @@ Player.prototype = {
     console.warn(playlist.style.display)
     var display = (playlist.style.display !== 'none') ? 'none' : 'block';
     const oposite = display === 'block' ? 'none' : 'block';
-    console.warn({playlist,display})
     setTimeout(function() {
       playlist.style.display = display;
       const player = [...document.getElementsByClassName('player')];
       player.forEach(elem => {
-        console.warn({elem,oposite});
         elem.style.display = oposite;
       });
     }, (display === 'block') ? 0 : 500);

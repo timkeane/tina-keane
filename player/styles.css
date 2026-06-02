@@ -265,7 +265,6 @@ div.back {
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
   touch-action: none;
-  -webkit-user-select: none;
   display: none;
 }
 .bar {
@@ -297,6 +296,9 @@ div.back {
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.33);
   border-radius: 25px;
   cursor: pointer;
+}
+.player {
+  display: none;
 }
 
 /* Fade-In */
