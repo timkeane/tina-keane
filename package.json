@@ -1,0 +1,17 @@
+{
+  "name": "tina-keane",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "start": "vite --host",
+    "build": "vite build",
+    "prebuild": "rm -rf ./dist"
+  },
+  "dependencies": {
+    "jquery": "^3.7.1",
+    "papaparse": "^5.4.1"
+  },
+  "devDependencies": {
+    "vite": "^6.3.5"
+  }
+}
