@@ -346,7 +346,7 @@ function slide() {
     x -= delta;
   }
   // console.warn({width,x,dir});
-  back.style.backgroundPositionX = x + 'px';
+  back.style.left = x + 'px';
   if (slideCount <= interval / speed) {
     setTimeout(slide, interval);
   } else {
@@ -356,20 +356,21 @@ function slide() {
 
 function setBackground() {
   back = document.getElementById('back' + i);
-  width = back.offsetWidth;
+  width = document.body.offsetWidth;
   const idx = Math.floor(Math.random() * pictures.length);
   const pic = './img/' + encodeURIComponent(pictures[idx]);
   back.style.backgroundImage = `url(${pic})`;
   back.style.zIndex = '0';
+  back.style.width = width + 'px';
   if (i === 0) {
     i = 1;
     x = -width;
-    back.style.backgroundPositionX = `${x}px`;
+    back.style.left = `${x}px`;
     dir = 'right';
   } else {
     i = 0;
     x = width;
-    back.style.backgroundPositionX = `${x}px`;
+    back.style.left = `${x}px`;
     dir = 'left';
   }
   document.getElementById('back' + i).style.zIndex = '-1';

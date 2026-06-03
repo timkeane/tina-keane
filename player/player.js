@@ -9,7 +9,7 @@
  */
 
 // Cache references to DOM elements.
-var elms = ['track', 'timer', 'duration', 'playBtn', 'pauseBtn', 'prevBtn', 'nextBtn', 'playlistBtn', 'volumeBtn', 'progress', 'bar', 'wave', 'loading', 'playlist', 'list', 'volume', 'barEmpty', 'barFull', 'sliderBtn'];
+var elms = ['band', 'track', 'timer', 'duration', 'bar', 'playBtn', 'pauseBtn', 'prevBtn', 'nextBtn', 'playlistBtn', 'volumeBtn', 'loading', 'playlist', 'list', 'volume', 'barEmpty', 'barFull', 'sliderBtn'];
 elms.forEach(function(elm) {
   window[elm] = document.getElementById(elm);
 });
@@ -74,33 +74,17 @@ Player.prototype = {
 
           // Start updating the progress of the track.
           requestAnimationFrame(self.step.bind(self));
-
-          // Start the wave animation if we have already loaded
-          wave.container.style.display = 'block';
-          bar.style.display = 'none';
           pauseBtn.style.display = 'block';
         },
         onload: function() {
-          // Start the wave animation.
-          wave.container.style.display = 'block';
-          bar.style.display = 'none';
           loading.style.display = 'none';
         },
         onend: function() {
-          // Stop the wave animation.
-          wave.container.style.display = 'none';
-          bar.style.display = 'block';
           self.skip('next');
         },
         onpause: function() {
-          // Stop the wave animation.
-          wave.container.style.display = 'none';
-          bar.style.display = 'block';
         },
         onstop: function() {
-          // Stop the wave animation.
-          wave.container.style.display = 'none';
-          bar.style.display = 'block';
         },
         onseek: function() {
           // Start updating the progress of the track.
@@ -113,7 +97,8 @@ Player.prototype = {
     sound.play();
 
     // Update the track display.
-    track.innerHTML = data.band + ' - ' + data.title;
+    band.innerHTML = data.band;
+    track.innerHTML = data.title;
 
     // Show the pause button.
     if (sound.state() === 'loaded') {
@@ -182,9 +167,6 @@ Player.prototype = {
       self.playlist[self.index].howl.stop();
     }
 
-    // Reset progress.
-    progress.style.width = '0%';
-
     // Play the new track.
     self.play(index);
   },
@@ -232,9 +214,9 @@ Player.prototype = {
 
     // Determine our current seek position.
     var seek = sound.seek() || 0;
+    
     timer.innerHTML = self.formatTime(Math.round(seek));
-    progress.style.width = (((seek / sound.duration()) * 100) || 0) + '%';
-
+    bar.style.width = ((seek / sound.duration()) || 0) * (document.body.offsetWidth - 110) + 'px';
     // If the sound is still playing, continue stepping.
     if (sound.playing()) {
       requestAnimationFrame(self.step.bind(self));
@@ -246,7 +228,6 @@ Player.prototype = {
    */
   togglePlaylist: function() {
     var self = this;
-    console.warn(playlist.style.display)
     var display = (playlist.style.display !== 'none') ? 'none' : 'block';
     const oposite = display === 'block' ? 'none' : 'block';
     setTimeout(function() {
@@ -575,9 +556,6 @@ prevBtn.addEventListener('click', function() {
 nextBtn.addEventListener('click', function() {
   player.skip('next');
 });
-waveform.addEventListener('click', function(event) {
-  player.seek(event.clientX / window.innerWidth);
-});
 playlistBtn.addEventListener('click', function() {
   player.togglePlaylist();
 });
@@ -621,41 +599,3 @@ var move = function(event) {
 
 volume.addEventListener('mousemove', move);
 volume.addEventListener('touchmove', move);
-
-// Setup the "waveform" animation.
-var wave = new SiriWave({
-  container: waveform,
-  width: window.innerWidth,
-  height: window.innerHeight * 0.3,
-  cover: true,
-  speed: 0.03,
-  amplitude: 0.7,
-  frequency: 2
-});
-wave.start();
-
-// Update the height of the wave animation.
-// These are basically some hacks to get SiriWave.js to do what we want.
-var resize = function() {
-  var height = window.innerHeight * 0.3;
-  var width = window.innerWidth;
-  wave.height = height;
-  wave.height_2 = height / 2;
-  wave.MAX = wave.height_2 - 4;
-  wave.width = width;
-  wave.width_2 = width / 2;
-  wave.width_4 = width / 4;
-  wave.canvas.height = height;
-  wave.canvas.width = width;
-  wave.container.style.margin = -(height / 2) + 'px auto';
-
-  // Update the position of the slider.
-  var sound = player.playlist[player.index].howl;
-  if (sound) {
-    var vol = sound.volume();
-    var barWidth = (vol * 0.9);
-    sliderBtn.style.left = (window.innerWidth * barWidth + window.innerWidth * 0.05 - 25) + 'px';
-  }
-};
-window.addEventListener('resize', resize);
-resize();

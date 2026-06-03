@@ -17,6 +17,12 @@ body {
   font-family: "Helvetica Neue", "Futura", "Trebuchet MS", Arial;
   -webkit-user-select: none;
   user-select: none;
+  color: rgb(255, 138, 157);
+  text-shadow: 
+    -.5px -.5px 0 rgb(128, 128, 128),  
+     .5px -.5px 0 rgb(128, 128, 128),
+    -.5px  .5px 0 rgb(128, 128, 128),
+     .5px  .5px 0 rgb(128, 128, 128);
 }
 
 div.back {
@@ -24,47 +30,47 @@ div.back {
   top: 0;
   left: 0;
   bottom: 0;
-  right: 0;
   background-repeat: no-repeat;
   background-size: auto 100%;
   background-position: center center;
 }
 
 /* Top Info */
-#title {
-  position: absolute;
-  width: 100%;
-  top: 3%;
-  line-height: 34px;
-  height: 34px;
+div#title {
+  position: fixed;
+  top: .5em;
+  left: 0;
+  right: 0;
+}
+div#band, div#track {
   text-align: center;
-  font-size: 34px;
-  opacity: 0.9;
-  font-weight: 300;
-  color: pink;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+  font-size: 2em;
+  font-weight: bold;
 }
-#timer {
-  position: absolute;
-  top: 0;
-  left: 3%;
+div#progress {
+}
+
+div#bar {
+  display: inline-block;
+  margin: 0 1em;
+  width: 50%;
+  height: .5em;
+  background-color: rgb(255, 138, 157);
+  border: .5px solid rgb(128, 128, 128);
+}
+div#timer {
+  padding-left: .5em;
+  float: left;
+  font-size: 1em;
   text-align: left;
-  font-size: 26px;
-  opacity: 0.9;
   font-weight: 300;
-  color: pink;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
 }
-#duration {
-  position: absolute;
-  top: 0;
-  right: 3%;
+div#duration {
+  padding-right: .5em;
+  float: right;
   text-align: right;
-  font-size: 26px;
-  opacity: 0.5;
+  font-size: 1em;
   font-weight: 300;
-  color: pink;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
 }
 
 /* Controls */
@@ -141,42 +147,6 @@ div.back {
   margin: -17.5px auto;
 }
 
-/* Progress */
-#waveform {
-  width: 100%;
-  height: 30%;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  margin: -15% auto;
-  display: none;
-  cursor: pointer;
-  opacity: 0.8;
-  -webkit-user-select: none;
-  user-select: none;
-}
-#waveform:hover {
-  opacity: 1;
-}
-#bar {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-  height: 2px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
-  opacity: 0.9;
-}
-#progress {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.1);
-  z-index: -1;
-}
 
 /* Loading */
 #loading {
@@ -186,7 +156,7 @@ div.back {
   margin: -35px;
   width: 70px;
   height: 70px;
-  background-color: pink;
+  background-color: rgb(255, 138, 157);
   border-radius: 100%;  
   -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
   animation: sk-scaleout 1.0s infinite ease-in-out;
@@ -233,23 +203,18 @@ div.back {
   width: 2em;
   height: 2em;
   margin: 1em;
-  color: pink;
   top: 0;
   right: 0;
-  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M24%2020.188l-8.315-8.209%208.2-8.282-3.697-3.697-8.212%208.318-8.31-8.203-3.666%203.666%208.321%208.24-8.206%208.313%203.666%203.666%208.237-8.318%208.285%208.203z%22%20fill%3D%22pink%22%2F%3E%3C%2Fsvg%3E');
+  background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M24%2020.188l-8.315-8.209%208.2-8.282-3.697-3.697-8.212%208.318-8.31-8.203-3.666%203.666%208.321%208.24-8.206%208.313%203.666%203.666%208.237-8.318%208.285%208.203z%22%20fill%3D%22rgb(255, 138, 157)%22%2F%3E%3C%2Fsvg%3E');
   background-repeat: no-repeat;
   background-position: center;
 }
 .list-band {
-  color: pink;
-  font-size: 4em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+  font-size: 3em;
 }
 .list-song {
-  padding-left: 2em;
-  color: pink;
-  font-size: 3em;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
+  padding-left: 1em;
+  font-size: 2em;
 }
 .list-song:hover {
   background-color: rgba(255, 255, 255, 0.1);
@@ -267,15 +232,7 @@ div.back {
   touch-action: none;
   display: none;
 }
-.bar {
-  position: absolute;
-  top: 50%;
-  left: 5%;
-  margin: -5px auto;
-  height: 10px;
-  background-color: rgba(255, 255, 255, 0.9);
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.33);
-}
+
 #barEmpty {
   width: 90%;
   opacity: 0.5;
