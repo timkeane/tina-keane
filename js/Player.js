@@ -4,6 +4,7 @@ import {Howl, Howler} from 'howler';
 class Player {
   constructor(playlist) {
     this.playlist = playlist;
+    this.currentSong = null;
     this.index = 0;
 
     let band = '';
@@ -26,6 +27,7 @@ class Player {
     let sound;
     index = typeof index === 'number' ? index : this.index;
     const data = this.playlist[index];
+    this.currentSong = data;
     if (data.howl) {
       sound = data.howl;
     } else {
@@ -115,21 +117,17 @@ class Player {
       window.requestAnimationFrame(this.step.bind(this));
     }
   }
+  toggleControls() {
+
+  }
   togglePlaylist() {
-    const display = $('#playlist').css('display') !== 'none' ? 'none' : 'block';
-    const oposite = display === 'block' ? 'none' : 'block';
-    setTimeout(function() {
-      $('#playlist').css({display});
-      $('.player').each((i, elem) => $(elem).css('display', oposite));
-    }, (display === 'block') ? 0 : 500);
-    $('#playlist')[display === 'block' ? 'fadeIn' : 'fadeOut']();
+    const display = $('#playlist').css('display');
+    $('#playlist')[display === 'block' ? 'fadeOut' : 'fadeIn']();
+    $('.player').each((i, elem) => $(elem)[display === 'block' ? 'fadeIn' : 'fadeOut']());
   }
   toggleVolume() {
-    const display = $('#volume').css('display') === 'block' ? 'none' : 'block';
-    setTimeout(function() {
-      $('#volume').css('display', display);
-    }, (display === 'block') ? 0 : 500);
-    $('#volume')[display === 'block' ? 'fadeIn' : 'fadeOut']();
+    const display = $('#volume').css('display');
+    $('#volume')[display === 'block' ? 'fadeOut' : 'fadeIn']();
   }
   formatTime(secs) {
     const minutes = Math.floor(secs / 60) || 0;
@@ -145,6 +143,30 @@ class Player {
       this.volume(per);
     }
   }
+  toggleSongInfo() {
+    if (this.currentSong) {
+      const display = $('#song-info').css('display') !== 'none' ? 'none' : 'block';
+      if (display === 'none') {
+          $('#song-info').fadeOut();
+          $('.player').each((i, elem) => $(elem).css('display', 'block'));
+      } else {
+        const song = this.currentSong;
+        $('#song-info .song').html(song.title);
+        $('#song-info .band').html(song.band);
+        $('#song-info .song-writer').html(song.songWriter);
+        $('#song-info .lead-vocals').html(song.leadVocals);
+        $('#song-info .guitar').html(song.guitar);
+        $('#song-info .bass').html(song.bass);
+        $('#song-info .drums').html(song.drums);
+        $('#song-info .backup-vocals').html(song.backupVocals);
+        fetch(song.lyrics).then(response => response.text().then(text => {
+          $('#song-info .lyrics').html(text);
+          $('#song-info').fadeIn();
+          $('.player').each((i, elem) => $(elem).css('display', 'none'));
+        }));
+      }
+    }
+  }
   addEventListeners() {
     $('#playBtn').on('click', () => this.play());
     $('#pauseBtn').on('click', () => this.pause());
@@ -152,13 +174,14 @@ class Player {
     $('#nextBtn').on('click', () => this.skip('next'));
     $('#playlistBtn').on('click', () => this.togglePlaylist());
     $('#playlist').on('click', () => this.togglePlaylist());
-    $('#volumeBtn').on('click', () => this.toggleVolume());
     $('#barEmpty').on('click', event => {
       this.volume(event.layerX / parseFloat($('#barEmpty').get(0).scrollWidth));
     });
+    $('#info').on('click', () => this.toggleSongInfo());
+    $('#song-info .close').on('click', () => this.toggleSongInfo());
+    $('#volumeBtn').on('click', () => this.toggleVolume());
     $('#sliderBtn').on('mousedown', () => this.sliderDown = true)
-      .on('touchstart', () => this.sliderDown = true);
-    $('#volume').on('click', () => this.toggleVolume())
+      .on('touchstart', () => this.sliderDown = true)
       .on('mouseup', () => this.sliderDown = false)
       .on('touchend', () => this.sliderDown = false)
       .on('mousemove', () => this.adjustVolume = false)

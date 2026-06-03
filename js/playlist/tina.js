@@ -10,6 +10,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20No%20Guarantees.mp3",
+    "lyrics": "lyrics/tina/no-guarantees.html",
     "howl": null
   },
   {
@@ -23,6 +24,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20Coming%20Back%20For%20More.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -36,6 +38,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20Now%20I%20Understand.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -49,6 +52,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20Can't%20Stop%20Thinking.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -62,6 +66,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20Me%20Against%20You.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -75,6 +80,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/Tina%20Keane%20-%20Moving%20Forward.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -88,6 +94,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20Moving%20In%20Circles.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -101,6 +108,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20How%20Am%20I%20to%20Blame.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -114,6 +122,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20Seasons%20Changing.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -127,6 +136,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20Parallel%20Lines.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -140,6 +150,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20Shades%20of%20Blue.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -153,6 +164,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Siren%20Song%20-%20We'll%20Never%20Know.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -166,6 +178,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Oh%20Mr.%20Grant!%20-%20She%20Sells%20Sanctuary.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -179,6 +192,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Oh%20Mr.%20Grant%20-%20Run%20and%20Hide.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -192,6 +206,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Oh%20Mr.%20Grant!%20-%20The%20Chosen%20One.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -205,6 +220,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Oh%20Mr.%20Grant!%20-%20Let%20Me%20In.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -218,6 +234,7 @@ export default [
     "drums": "",
     "backupVocals": "",
     "file": "mp3/Oh%20Mr%20%20Grant!%20%20%20Now%20I%20Understand.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -231,6 +248,7 @@ export default [
     "drums": "Joey Hummel",
     "backupVocals": "",
     "file": "mp3/Yellowfin%20-%20Bitter%20Bliss.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -244,6 +262,7 @@ export default [
     "drums": "Joey Hummel",
     "backupVocals": "",
     "file": "mp3/Yellowfin%20-%20Hasty.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -257,6 +276,7 @@ export default [
     "drums": "Joey Hummel",
     "backupVocals": "",
     "file": "mp3/Yellowfin%20-%20Slow.mp3",
+    "lyrics": "",
     "howl": null
   },
   {
@@ -270,6 +290,7 @@ export default [
     "drums": "Joey Hummel",
     "backupVocals": "",
     "file": "mp3/Yellowfin%20-%20Drive%20Cars.mp3",
+    "lyrics": "",
     "howl": null
   }
 ];

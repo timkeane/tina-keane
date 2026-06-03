@@ -207,8 +207,9 @@ div#duration {
   top: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  overflow: hidden;
 }
-#list {
+#list, #song-info {
   top: 0;
   bottom: 0;
   left: 0;
@@ -217,7 +218,13 @@ div#duration {
   padding: 1em;
   overflow: auto;
 }
-#close {
+#song-info {
+  display: none;
+  background-color: rgba(0,0,0,.5);
+}
+a.close {
+  z-index: 2;
+  cursor: pointer;
   position: fixed;
   width: 2em;
   height: 2em;
@@ -339,4 +346,7 @@ div#duration {
 
 .band-margin {
   margin-top: .5em;
+}
+#song-info {
+  
 }
