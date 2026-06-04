@@ -4,29 +4,27 @@ class Slide {
   constructor(images) {
     this.images = images;
     this.backgroundIndex = 0;
-    this.slidingBackground = null;
+    this.slidingImg = null;
     this.direction = null;
-    this.docWidth = 0;
     this.interval = 50;
     this.speed = .15;
     this.posX = 0;
-    this.resize();
-    $(window).on('resize', this.resize.bind(this));
-  }
-  resize() {
-    this.docWidth = $(window).width();
-    $('.back').css('width', `${this.docWidth}px`);
+    $('img.back').on('load', this.fillWindow.bind(this));
     this.setBackground();
+  }
+  fillWindow (event) {
+    const img = $(event.target);
+    img.css('transform', `scale(${$(window).height() / img.height()})`);
   }
   slide() {
     this.slideCount = this.slideCount + 1;
-    const delta = this.speed * (2 * this.docWidth / this.interval);
+    const delta = this.speed * (2 * $(window).width() / this.interval);
     if (this.direction === 'right') {
       this.posX += delta;
     } else {
       this.posX -= delta;
     }
-    this.slidingBackground.css('left', `${this.posX}px`);
+    this.slidingImg.css('left', `${this.posX}px`);
     if (this.slideCount <= this.interval / this.speed) {
       setTimeout(this.slide.bind(this), this.interval);
     } else {
@@ -34,20 +32,19 @@ class Slide {
     }
   }
   setBackground() {
-    this.slidingBackground = $(`#back${this.backgroundIndex}`);
+    this.slidingImg = $(`#back${this.backgroundIndex}`);
     const idx = Math.floor(Math.random() * this.images.length);
-    this.slidingBackground.css('background-image', `url(${this.images[idx]})`);
-    this.slidingBackground.css('z-index', '0');
-    this.slidingBackground.css('width', `${this.docWidth}px'`);
+    this.slidingImg.attr('src', this.images[idx]);
+    this.slidingImg.css({zIndex: '0', transform: 'unset'});
     if (this.backgroundIndex === 0) {
       this.backgroundIndex = 1;
-      this.posX = -this.docWidth;
-      this.slidingBackground.css('left', `${this.posX}px`);
+      this.posX = -$(window).width();
+      this.slidingImg.css('left', `${this.posX}px`);
       this.direction = 'right';
     } else {
       this.backgroundIndex = 0;
-      this.posX = this.docWidth;
-      this.slidingBackground.css('left', `${this.posX}px`);
+      this.posX = $(window).width();
+      this.slidingImg.css('left', `${this.posX}px`);
       this.direction = 'left';
     }
     $(`#back${this.backgroundIndex}`).css('z-index', '-1');

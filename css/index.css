@@ -47,14 +47,9 @@ div#intro {
 #intro div {
   margin-top: -10%;
 }
-div.back {
+img.back {
   position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  background-repeat: no-repeat;
-  background-size: auto 100%;
-  background-position: center center;
+  transform-origin: top left;
 }
 
 /* Top Info */
