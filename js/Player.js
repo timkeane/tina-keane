@@ -1,4 +1,4 @@
-import $ from 'jquery';
+import $, { event } from 'jquery';
 import {Howl, Howler} from 'howler';
 
 class Player {
@@ -92,11 +92,8 @@ class Player {
     }
     this.play(index);
   }
-  volume(val) {
-    Howler.volume(val);
-    const barWidth = (val * 90) / 100;
-    $('#barFull').css('width', `${val * 90}%`);
-    $('sliderBtn').css('left', `${window.innerWidth * barWidth + window.innerWidth * 0.05 - 25}px`);
+  volume(event) {
+    Howler.volume($(event.target).val() / 100);
   }
   seek(per) {
     // TODO need to hook up to a click event?
@@ -126,22 +123,13 @@ class Player {
     $('.player').each((i, elem) => $(elem)[display === 'block' ? 'fadeIn' : 'fadeOut']());
   }
   toggleVolume() {
-    const display = $('#volume').css('display');
-    $('#volume')[display === 'block' ? 'fadeOut' : 'fadeIn']();
+    const display = $('.volume-slider').css('display');
+    $('.volume-slider')[display === 'block' ? 'fadeOut' : 'fadeIn']();
   }
   formatTime(secs) {
     const minutes = Math.floor(secs / 60) || 0;
     const seconds = (secs - minutes * 60) || 0;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-  }
-  adjustVolume(event) {
-    if (this.sliderDown) {
-      const x = event.clientX || event.touches[0].clientX;
-      const startX = window.innerWidth * 0.05;
-      const layerX = x - startX;
-      const per = Math.min(1, Math.max(0, layerX / parseFloat(barEmpty.scrollWidth)));
-      this.volume(per);
-    }
   }
   toggleSongInfo() {
     if (this.currentSong) {
@@ -151,6 +139,7 @@ class Player {
           $('.player').each((i, elem) => $(elem).css('display', 'block'));
       } else {
         const song = this.currentSong;
+        $('#song-info .lyrics').html('');
         $('#song-info .song').html(song.title);
         $('#song-info .band').html(song.band);
         $('#song-info .song-writer').html(song.songWriter);
@@ -159,11 +148,19 @@ class Player {
         $('#song-info .bass').html(song.bass);
         $('#song-info .drums').html(song.drums);
         $('#song-info .backup-vocals').html(song.backupVocals);
-        fetch(song.lyrics).then(response => response.text().then(text => {
-          $('#song-info .lyrics').html(text);
-          $('#song-info').fadeIn();
+        if (song.lyrics) {
+          fetch(song.lyrics).then(response => response.text().then(text => {
+            $('#song-info .lyrics').html(text);
+          })).catch(error => {
+            console.error('Error encountered:', error.message);
+          }).finally(() => {
+            $('#song-info').fadeIn();
+            $('.player').each((i, elem) => $(elem).css('display', 'none'));
+          });
+        } else {
           $('.player').each((i, elem) => $(elem).css('display', 'none'));
-        }));
+          $('#song-info').fadeIn();
+        }
       }
     }
   }
@@ -174,18 +171,10 @@ class Player {
     $('#nextBtn').on('click', () => this.skip('next'));
     $('#playlistBtn').on('click', () => this.togglePlaylist());
     $('#playlist').on('click', () => this.togglePlaylist());
-    $('#barEmpty').on('click', event => {
-      this.volume(event.layerX / parseFloat($('#barEmpty').get(0).scrollWidth));
-    });
     $('#info').on('click', () => this.toggleSongInfo());
     $('#song-info .close').on('click', () => this.toggleSongInfo());
+    $('#volume').on('change', event => this.volume(event));
     $('#volumeBtn').on('click', () => this.toggleVolume());
-    $('#sliderBtn').on('mousedown', () => this.sliderDown = true)
-      .on('touchstart', () => this.sliderDown = true)
-      .on('mouseup', () => this.sliderDown = false)
-      .on('touchend', () => this.sliderDown = false)
-      .on('mousemove', () => this.adjustVolume = false)
-      .on('touchmove', () => this.adjustVolume = false);
   }
 }
 
