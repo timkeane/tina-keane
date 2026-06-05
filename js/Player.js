@@ -171,7 +171,7 @@ class Player {
     $('#nextBtn').on('click', () => this.skip('next'));
     $('#playlistBtn').on('click', () => this.togglePlaylist());
     $('#playlist').on('click', () => this.togglePlaylist());
-    $('#info').on('click', () => this.toggleSongInfo());
+    $('#info-btn').on('click', () => this.toggleSongInfo());
     $('#song-info .close').on('click', () => this.toggleSongInfo());
     $('#volume').on('change', event => this.volume(event));
     $('#volumeBtn').on('click', () => this.toggleVolume());
