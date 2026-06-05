@@ -47,7 +47,7 @@ q {
   font-weight: 500;
 }
 
-q::before, .more q::after {
+q::before, q::after {
   padding-left: .25em;
   font-size: 300%;
 }
