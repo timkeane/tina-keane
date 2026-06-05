@@ -1,4 +1,4 @@
-import $, { event } from 'jquery';
+import $ from 'jquery';
 import {Howl, Howler} from 'howler';
 
 class Player {
@@ -96,7 +96,6 @@ class Player {
     Howler.volume($(event.target).val() / 100);
   }
   seek(per) {
-    // TODO need to hook up to a click event?
     const sound = this.playlist[this.index].howl;
     if (sound.playing()) {
       sound.seek(sound.duration() * per);
@@ -164,6 +163,15 @@ class Player {
       }
     }
   }
+  calculateSeek(event) {
+    const start = $('#timer').width();
+    const end = $(window).width() - $('#duration').width();
+    const length = end - start;
+    const x = event.pageX;
+    if (x > start && x < end) {
+      this.seek((x - start) / length);
+    }
+  }
   addEventListeners() {
     $('#play-btn').on('click', () => this.play());
     $('#pause-btn').on('click', () => this.pause());
@@ -176,6 +184,7 @@ class Player {
     $('#volume').on('change', event => this.volume(event));
     $('#volume-btn').on('click', () => this.toggleVolume());
     $('#intro').one('click', () => $('#intro').fadeOut());
+    $('#progress').on('click', event => this.calculateSeek(event));
   }
 }
 
