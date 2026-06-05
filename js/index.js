@@ -4,6 +4,6 @@ import Player from './Player';
 import imagelist from './imagelist/tina';
 import playlist from './playlist/tina';
 
-setTimeout(() => $('#intro').hide(), 5000);
+setTimeout(() => $('#intro').fadeOut(), 5000);
 new Slide(imagelist);
 new Player(playlist);

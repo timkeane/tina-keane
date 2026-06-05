@@ -1,5 +1,5 @@
 import {defineConfig, splitVendorChunkPlugin} from 'vite';
-import { resolve } from 'path';
+import {resolve} from 'path';
 
 export default defineConfig({
   base: '',
@@ -13,6 +13,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         more: resolve(__dirname, 'more.html'),
+        other: resolve(__dirname, 'other.html')
       },
     },
   },

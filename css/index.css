@@ -49,7 +49,7 @@ body {
 }
 @media only screen and (min-width: 730px) {
   #intro {
-    background-size: 55%;
+    background-size: 50%;
   }
 }
 img.back {

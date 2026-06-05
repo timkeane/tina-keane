@@ -175,6 +175,7 @@ class Player {
     $('#song-info .close').on('click', () => this.toggleSongInfo());
     $('#volume').on('change', event => this.volume(event));
     $('#volumeBtn').on('click', () => this.toggleVolume());
+    $('#intro').one('click', () => $('#intro').fadeOut());
   }
 }
 
