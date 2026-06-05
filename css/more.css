@@ -9,8 +9,8 @@ html {
 
 body {
   background: #000;
-  width: 100%;
-  height: 100%;
+  width: calc(100% - 2em);
+  height: calc(100% - 2em);
   padding: 0;
   margin: 0;
   overflow: hidden;
@@ -22,7 +22,7 @@ body {
   background-image: url(../img/more/sunflower.webp);
   background-color: #fff;
   background-size: 100%;
-  padding: 1em;
+  padding: 0 1em 2em 1em;
   overflow: auto;
 }
 

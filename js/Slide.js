@@ -14,42 +14,63 @@ class Slide {
   }
   fillWindow (event) {
     const img = $(event.target);
-    img.css('transform', `scale(${$(window).height() / img.height()})`);
+    this.imgScale = $(window).height() / img.height();
+    img.css('transform', `scale(${this.imgScale})`);
   }
   slide() {
-    this.slideCount = this.slideCount + 1;
     const delta = this.speed * (2 * $(window).width() / this.interval);
-    if (this.direction === 'right') {
-      this.posX += delta;
-    } else {
-      this.posX -= delta;
-    }
-    this.slidingImg.css('left', `${this.posX}px`);
-    if (this.slideCount <= this.interval / this.speed) {
-      setTimeout(this.slide.bind(this), this.interval);
-    } else {
+    this.slideCount = this.slideCount + 1;
+    this.posX -= delta;
+    this.slidingImg.css(this.direction, `${this.posX}px`);
+
+    if (
+      this.direction === 'right' &&
+      this.posX < -this.slidingImg.width() * this.imgScale
+    ) {
       this.setBackground();
+    } else if (
+      this.direction === 'left' &&
+      this.posX < -this.slidingImg.width() * this.imgScale
+    ) {
+      this.setBackground();
+    } else {
+      setTimeout(this.slide.bind(this), this.interval);
     }
   }
   setBackground() {
-    this.slidingImg = $(`#back${this.backgroundIndex}`);
+    this.slidingImg = $(`#back${this.backgroundIndex}`)
+      .one('load', () => {
+        setTimeout(() => this.slide(), 500);
+      });
     const idx = Math.floor(Math.random() * this.images.length);
+    this.slidingImg.css({
+        display: 'none',
+        left: 'unset',
+        top: '0',
+        right: 'unset',
+        bottom: '0',
+        transform: 'unset',
+        transformOrigin: 'unset'
+      });
     this.slidingImg.attr('src', this.images[idx]);
-    this.slidingImg.css({zIndex: '0', transform: 'unset'});
+    this.posX = $(window).width();
+
+    let css = 'left';
+    let origin = 'right top'
+
     if (this.backgroundIndex === 0) {
       this.backgroundIndex = 1;
-      this.posX = -$(window).width();
-      this.slidingImg.css('left', `${this.posX}px`);
+      this.slidingImg = $('#back0');
       this.direction = 'right';
     } else {
       this.backgroundIndex = 0;
-      this.posX = $(window).width();
-      this.slidingImg.css('left', `${this.posX}px`);
+      this.slidingImg = $('#back1');
       this.direction = 'left';
+      origin = 'left top';
     }
-    $(`#back${this.backgroundIndex}`).css('z-index', '-1');
+    this.slidingImg.css(this.direction, `${this.posX}px`)
+      .css('transform-origin', origin).show();
     this.slideCount = 0;
-    this.slide();
   }
 }
 
