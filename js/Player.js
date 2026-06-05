@@ -103,7 +103,7 @@ class Player {
   }
   step() {
     const sound = this.playlist[this.index].howl;
-    const seek = sound.seek() || 0; // TODO ???? seek doesnt seem to return anything that i can see
+    const seek = sound.seek() || 0;
     $('#timer').html(this.formatTime(Math.round(seek)));
     $('#bar').css({
       width: `${((seek / sound.duration()) || 0) * (document.body.offsetWidth - 110)}px`,
