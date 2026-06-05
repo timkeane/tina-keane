@@ -7,7 +7,7 @@ class Slide {
     this.slidingImg = null;
     this.direction = null;
     this.interval = 50;
-    this.speed = .15;
+    this.speed = 75;
     this.posX = 0;
     $('img.back').on('load', this.fillWindow.bind(this));
     this.setBackground();
@@ -18,7 +18,9 @@ class Slide {
     img.css('transform', `scale(${this.imgScale})`);
   }
   slide() {
-    const delta = this.speed * (2 * $(window).width() / this.interval);
+    const w = $(window).width();
+    const delta = (this.speed / w) * (2 * w / this.interval);
+    // console.warn((this.speed / w));
     this.slideCount = this.slideCount + 1;
     this.posX -= delta;
     this.slidingImg.css(this.direction, `${this.posX}px`);

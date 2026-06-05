@@ -37,7 +37,7 @@ class Player {
         onplay: () => {
           $('#duration').html(this.formatTime(Math.round(sound.duration())));
           window.requestAnimationFrame(this.step.bind(this));
-          $('#pauseBtn').show();
+          $('#pause-btn').show();
         },
         onload: () => {
           $('#loading').hide();
@@ -56,20 +56,20 @@ class Player {
     $('#band').html(data.band);
     $('#track').html(data.title);
     if (sound.state() === 'loaded') {
-      $('#playBtn').hide();
-      $('#pauseBtn').show();
+      $('#play-btn').hide();
+      $('#pause-btn').show();
     } else {
       $('#loading').show();
-      $('#playBtn').hide();
-      $('#pauseBtn').hide();
+      $('#play-btn').hide();
+      $('#pause-btn').hide();
     }
     this.index = index;
   }
   pause() {
     const sound = this.playlist[this.index].howl;
     sound.pause();
-    $('#playBtn').show();
-    $('#pauseBtn').hide();
+    $('#play-btn').show();
+    $('#pause-btn').hide();
   }
   skip(direction) {
     let index = 0;
@@ -165,16 +165,16 @@ class Player {
     }
   }
   addEventListeners() {
-    $('#playBtn').on('click', () => this.play());
-    $('#pauseBtn').on('click', () => this.pause());
-    $('#prevBtn').on('click', () => this.skip('prev'));
-    $('#nextBtn').on('click', () => this.skip('next'));
-    $('#playlistBtn').on('click', () => this.togglePlaylist());
+    $('#play-btn').on('click', () => this.play());
+    $('#pause-btn').on('click', () => this.pause());
+    $('#prev-btn').on('click', () => this.skip('prev'));
+    $('#next-btn').on('click', () => this.skip('next'));
+    $('#playlist-btn').on('click', () => this.togglePlaylist());
     $('#playlist').on('click', () => this.togglePlaylist());
     $('#info-btn').on('click', () => this.toggleSongInfo());
     $('#song-info .close').on('click', () => this.toggleSongInfo());
     $('#volume').on('change', event => this.volume(event));
-    $('#volumeBtn').on('click', () => this.toggleVolume());
+    $('#volume-btn').on('click', () => this.toggleVolume());
     $('#intro').one('click', () => $('#intro').fadeOut());
   }
 }
