@@ -1,6 +1,6 @@
 {
   "name": "tina-keane",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "type": "module",
   "scripts": {
     "start": "vite --host",
@@ -9,8 +9,7 @@
   },
   "dependencies": {
     "howler": "^2.2.4",
-    "jquery": "^3.7.1",
-    "papaparse": "^5.4.1"
+    "jquery": "^3.7.1"
   },
   "devDependencies": {
     "terser": "^5.48.0",
