@@ -130,6 +130,12 @@ class Player {
     const seconds = (secs - minutes * 60) || 0;
     return `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
   }
+  copyright(songWriter, band) {
+    let copyright = `&copy; ${songWriter || band}`;
+    if (band && songWriter && band !== songWriter) copyright = `${copyright} and ${band}`;
+    $('#song-info .copyright').html(copyright);
+
+  }
   toggleSongInfo() {
     if (this.currentSong) {
       const display = $('#song-info').css('display') !== 'none' ? 'none' : 'block';
@@ -147,6 +153,7 @@ class Player {
         $('#song-info .bass').html(song.bass);
         $('#song-info .drums').html(song.drums);
         $('#song-info .backup-vocals').html(song.backupVocals);
+        this.copyright(song.songWriter, song.band);
         if (song.lyrics) {
           fetch(song.lyrics).then(response => response.text().then(text => {
             $('#song-info .lyrics').html(text);

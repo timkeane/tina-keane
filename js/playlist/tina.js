@@ -24,7 +24,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/tina/Tina%20Keane%20-%20Coming%20Back%20For%20More.mp3",
-    "lyrics": "",
+    "lyrics": "lyrics/tina/coming-back-for-more.html",
     "howl": null
   },
   {
@@ -38,7 +38,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/tina/Tina%20Keane%20-%20Now%20I%20Understand.mp3",
-    "lyrics": "",
+    "lyrics": "lyrics/tina/now-i-understand.html",
     "howl": null
   },
   {
@@ -52,7 +52,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/tina/Tina%20Keane%20-%20Can't%20Stop%20Thinking.mp3",
-    "lyrics": "",
+    "lyrics": "lyrics/tina/cant-stop-thinking.html",
     "howl": null
   },
   {
@@ -66,7 +66,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/tina/Tina%20Keane%20-%20Me%20Against%20You.mp3",
-    "lyrics": "",
+    "lyrics": "lyrics/tina/me-against-you.html",
     "howl": null
   },
   {
@@ -80,7 +80,7 @@ export default [
     "drums": "Tina Keane",
     "backupVocals": "Tina Keane",
     "file": "mp3/tina/Tina%20Keane%20-%20Moving%20Forward.mp3",
-    "lyrics": "",
+    "lyrics": "lyrics/tina/moving-forward.html",
     "howl": null
   },
   {

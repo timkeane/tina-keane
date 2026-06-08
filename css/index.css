@@ -263,12 +263,21 @@ img.back {
   background-color: rgba(0,0,0,.5);
 }
 
-#song-info t {
-  font-size: 1.5em;
+#song-info table {
+  max-width: calc(100% - 2.5em);
+  border-collapse: collapse;
 }
 
+#song-info td {
+  vertical-align: text-top;
+}
 #song-info .field {
   font-weight: 500;
+  padding-right: .5em;
+}
+
+#song-info .copyright {
+  padding-top: .5em;
 }
 
 a.close {
