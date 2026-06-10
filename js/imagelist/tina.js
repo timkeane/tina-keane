@@ -83,7 +83,6 @@ export default [
   "img/tina/Christmas2 copy.jpg",
   "img/tina/dancingtimandtina.jpg",
   "img/tina/DSCN1528.jpg",
-  "img/tina/files.txt",
   "img/tina/FullSizeRenderT.jpg",
   "img/tina/HH_0957.jpg",
   "img/tina/Image (27).jpg",
