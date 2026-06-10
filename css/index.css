@@ -120,6 +120,7 @@ img.back {
   background-color: rgb(255, 138, 157);
   border: .5px solid rgb(128, 128, 128);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 #timer {
