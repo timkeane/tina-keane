@@ -5,7 +5,7 @@ export default [
     "year": "",
     attribution: [
       ["Song Writer", "Tina Keane"],
-      ["Song Writer", "Tina Keane"],
+      ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
       ["Drums", "Tina Keane"],
