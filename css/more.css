@@ -63,3 +63,15 @@ p.obit {
 p.remember {
   margin-top: -1em;
 }
+
+h3 {
+  margin: .5em 0;
+}
+
+ul {
+  padding-left: 1em;
+}
+
+li {
+  list-style-type: none;
+}
