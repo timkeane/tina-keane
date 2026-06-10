@@ -144,16 +144,19 @@ class Player {
           $('.player').each((i, elem) => $(elem).css('display', 'block'));
       } else {
         const song = this.currentSong;
-        $('#song-info .lyrics').html('');
+        $('#song-info .lyrics').empty();
+        $('#song-info tbody').empty();
         $('#song-info .song').html(song.title);
         $('#song-info .band').html(song.band);
-        $('#song-info .song-writer').html(song.songWriter);
-        $('#song-info .lead-vocals').html(song.leadVocals);
-        $('#song-info .guitar').html(song.guitar);
-        $('#song-info .bass').html(song.bass);
-        $('#song-info .drums').html(song.drums);
-        $('#song-info .backup-vocals').html(song.backupVocals);
-        this.copyright(song.songWriter, song.band);
+        song.attribution.forEach(attribute => {
+          if (attribute[1]) {
+            $('#song-info tbody').append(`<tr>
+                <td class="field">${attribute[0]}:</td>
+                <td>${attribute[1]}</td>
+              </tr>`);
+          }
+        });
+        this.copyright(song.attribution[0][1], song.band);
         if (song.lyrics) {
           fetch(song.lyrics).then(response => response.text().then(text => {
             $('#song-info .lyrics').html(text);
