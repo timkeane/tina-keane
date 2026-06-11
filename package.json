@@ -1,6 +1,6 @@
 {
   "name": "tina-keane",
-  "version": "0.5.2",
+  "version": "0.5.4",
   "type": "module",
   "scripts": {
     "start": "vite --host",
