@@ -73,6 +73,8 @@ class Player {
     this.index = index;
   }
   shuffle() {
+    const sound = this.playlist[this.index].howl;
+    if (sound) sound.stop();
     this.shuffling = true;
     this.play();
   }
