@@ -118,6 +118,7 @@ img.back {
 #progress:hover {
   background-color: rgb(255, 138, 157, .4);
   border: 1 solid rgb(128, 128, 128);
+  cursor: pointer;
 }
 
 #bar {
