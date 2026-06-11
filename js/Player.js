@@ -17,7 +17,7 @@ class Player {
         $('#list').append(bandDiv);
         band = song.band;
       }
-      const songDiv = $(`<div class="list-song">${song.title}</div>`)
+      const songDiv = $(`<a class="list-song" tabindex="0" href="#">${song.title}</a>`)
         .on('click', () => {
           this.skipTo(playlist.indexOf(song));
         });

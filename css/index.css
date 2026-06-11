@@ -25,6 +25,16 @@ body {
      .5px  .5px 0 rgb(128, 128, 128);
 }
 
+*:focus-visible {
+  outline: 1px solid rgb(255, 138, 157);
+  border-radius: .25em;
+}
+
+a, a:visited {
+  text-decoration: none;
+  color: rgb(255, 138, 157);
+}
+
 #intro {
   position: fixed;
   top: 0;
@@ -249,6 +259,11 @@ img.back {
 #more a.close {
   background-image: url('data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%3E%3Cpath%20d%3D%22M24%2020.188l-8.315-8.209%208.2-8.282-3.697-3.697-8.212%208.318-8.31-8.203-3.666%203.666%208.321%208.24-8.206%208.313%203.666%203.666%208.237-8.318%208.285%208.203z%22%20fill%3D%22%23880808%22%2F%3E%3C%2Fsvg%3E');
 }
+
+#more a.close:focus-visible {
+  outline: 1px solid #880808;
+}
+
 @-webkit-keyframes sk-scaleout {
 
   0% {
@@ -341,12 +356,13 @@ a.close {
   margin-top: .5em;
 }
 
-.list-song {
+a.list-song {
   padding-left: 1em;
   font-size: 2em;
+  display: block;
 }
 
-.list-song:hover {
+a.list-song:hover {
   background-color: rgba(255, 255, 255, .2);
   cursor: pointer;
 }

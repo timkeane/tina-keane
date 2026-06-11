@@ -26,6 +26,11 @@ body {
   overflow: auto;
 }
 
+*:focus-visible {
+  outline: 1px solid #880808;
+  border-radius: .25em;
+}
+
 h1 {
   padding-left: .5em;
 }
