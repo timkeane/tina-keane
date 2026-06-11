@@ -33,6 +33,11 @@ body {
 a, a:visited {
   text-decoration: none;
   color: rgb(255, 138, 157);
+  border-radius: 5px;
+}
+
+a:hover {
+  background-color: rgba(255,255,255,.2)
 }
 
 #intro {
