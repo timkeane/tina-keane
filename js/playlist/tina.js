@@ -8,6 +8,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"],
     ],
@@ -24,6 +25,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"]
     ],
@@ -40,6 +42,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"]
     ],
@@ -56,6 +59,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"]
     ],
@@ -72,6 +76,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"]
     ],
@@ -88,6 +93,7 @@ export default [
       ["Lead Vocals", "Tina Keane"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Tina Keane"],
+      ["Piano", ""],
       ["Drums", "Tina Keane"],
       ["Backup Vocals", "Tina Keane"]
     ],
@@ -104,6 +110,7 @@ export default [
       ["Lead Vocals", "Laura Branco"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Tracy Macrone"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -120,6 +127,7 @@ export default [
       ["Lead Vocals", "Laura Branco"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Tracy Macrone"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -136,6 +144,7 @@ export default [
       ["Lead Vocals", "Laura Branco"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Tracy Macrone"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -152,6 +161,7 @@ export default [
       ["Lead Vocals", "Jannet Perez"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", ""], //Tracy Macrone ? Diane??
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -168,6 +178,7 @@ export default [
       ["Lead Vocals", "Jannet Perez"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", ""], //Diane?
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -184,6 +195,7 @@ export default [
       ["Lead Vocals", "Laura Branco"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Tracy Macrone"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -217,6 +229,7 @@ export default [
       ["Lead Vocals", "Melanie Fallon"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Tracy Macrone"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -233,6 +246,7 @@ export default [
       ["Lead Vocals", "Melanie Fallon"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Shaz North"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -249,6 +263,7 @@ export default [
       ["Lead Vocals", "Melanie Fallon"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Shaz North"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -265,6 +280,7 @@ export default [
       ["Lead Vocals", "Melanie Fallon"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Gina Devito"],
+      ["Piano", ""],
       ["Drums", "Shaz North"],
       ["Backup Vocals", "Gina Devito"]
     ],
@@ -277,10 +293,11 @@ export default [
     title: "Bitter Bliss",
     "year": "",
     attribution: [
-      ["Song Writer", "Tina Keane",]
+      ["Song Writer", "Tina Keane"],
       ["Lead Vocals", "Stacy Lee Raddatz"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Scott Selig"],
+      ["Piano", ""],
       ["Drums", "Joey Hummel"],
       ["Backup Vocals", ""]
     ],
@@ -297,6 +314,7 @@ export default [
       ["Lead Vocals", "Stacy Lee Raddatz"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Scott Selig"],
+      ["Piano", ""],
       ["Drums", "Joey Hummel"],
       ["Backup Vocals", ""]
     ],
@@ -313,6 +331,7 @@ export default [
       ["Lead Vocals", "Stacy Lee Raddatz"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Scott Selig"],
+      ["Piano", ""],
       ["Drums", "Joey Hummel"],
       ["Backup Vocals", ""]
     ],
@@ -329,6 +348,7 @@ export default [
       ["Lead Vocals", "Stacy Lee Raddatz"],
       ["Guitar", "Tina Keane"],
       ["Bass", "Scott Selig"],
+      ["Piano", ""],
       ["Drums", "Joey Hummel"],
       ["Backup Vocals", ""]
     ],

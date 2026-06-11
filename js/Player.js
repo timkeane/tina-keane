@@ -6,6 +6,8 @@ class Player {
     this.playlist = playlist;
     this.currentSong = null;
     this.index = 0;
+    this.shuffling = false;
+    this.paused = false;
 
     let band = '';
     playlist.forEach(song => {
@@ -25,8 +27,13 @@ class Player {
   }
   play(index) {
     let sound;
+    if (this.shuffling && !this.paused) {
+        this.index = Math.floor(Math.random() * this.playlist.length);
+    }
+    if (index) this.shuffling = false;
     index = typeof index === 'number' ? index : this.index;
     const data = this.playlist[index];
+    this.paused = false;
     this.currentSong = data;
     if (data.howl) {
       sound = data.howl;
@@ -65,26 +72,35 @@ class Player {
     }
     this.index = index;
   }
+  shuffle() {
+    this.shuffling = true;
+    this.play();
+  }
   pause() {
     const sound = this.playlist[this.index].howl;
     sound.pause();
+    this.paused = true;
     $('#play-btn').show();
     $('#pause-btn').hide();
   }
   skip(direction) {
-    let index = 0;
-    if (direction === 'prev') {
-      index = this.index - 1;
-      if (index < 0) {
-        index = this.playlist.length - 1;
-      }
+    if (this.shuffling) {
+      this.skipTo();
     } else {
-      index = this.index + 1;
-      if (index >= this.playlist.length) {
-        index = 0;
+      let index = 0;
+      if (direction === 'prev') {
+        index = this.index - 1;
+        if (index < 0) {
+          index = this.playlist.length - 1;
+        }
+      } else {
+        index = this.index + 1;
+        if (index >= this.playlist.length) {
+          index = 0;
+        }
       }
+      this.skipTo(index);
     }
-    this.skipTo(index);
   }
   skipTo(index) {
     if (this.playlist[this.index].howl) {
@@ -182,6 +198,9 @@ class Player {
       this.seek((x - start) / length);
     }
   }
+  more() {
+    ;
+  }
   addEventListeners() {
     $('#play-btn').on('click', () => this.play());
     $('#pause-btn').on('click', () => this.pause());
@@ -195,6 +214,9 @@ class Player {
     $('#volume-btn').on('click', () => this.toggleVolume());
     $('#intro').one('click', () => $('#intro').fadeOut());
     $('#progress').on('click', event => this.calculateSeek(event));
+    $('#shuffle-btn').on('click', () => this.shuffle());
+    $('#more-btn').on('click', () => $('#more').fadeIn());
+    $('#more .close').on('click', () => $('#more').fadeOut());
   }
 }
 
