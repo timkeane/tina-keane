@@ -360,6 +360,7 @@ a.list-song {
   padding-left: 1em;
   font-size: 2em;
   display: block;
+  border-radius: .25em;
 }
 
 a.list-song:hover {

@@ -17,7 +17,7 @@ class Player {
         $('#list').append(bandDiv);
         band = song.band;
       }
-      const songDiv = $(`<a class="list-song" tabindex="0" href="#">${song.title}</a>`)
+      const songDiv = $(`<a class="list-song" tabindex="0" href="#" title="Play ${song.title}" aria-label="Play ${song.title}">${song.title}</a>`)
         .on('click', () => {
           this.skipTo(playlist.indexOf(song));
         });
