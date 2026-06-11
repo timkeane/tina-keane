@@ -449,4 +449,12 @@ a.list-song:hover {
     font-size: 90%;
   }
 
+  .list-band {
+    font-size: 2em;
+  }
+
+  a.list-song {
+    font-size: 1.25em;
+  }
+
 }
