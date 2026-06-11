@@ -105,9 +105,8 @@ class Player {
     }
   }
   skipTo(index) {
-    if (this.playlist[this.index].howl) {
-      this.playlist[this.index].howl.stop();
-    }
+    const sound = this.playlist[this.index].howl;
+    if (sound) sound.stop();
     this.play(index);
   }
   volume(event) {
