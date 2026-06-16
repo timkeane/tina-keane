@@ -443,7 +443,7 @@ a.list-song:hover {
 
 }
 
-@media only screen and (max-width: 320px) {
+@media only screen and (max-width: 325px) {
 
   #title {
     font-size: 90%;
