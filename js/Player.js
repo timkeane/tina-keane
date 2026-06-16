@@ -114,7 +114,7 @@ class Player {
   }
   seek(per) {
     const sound = this.playlist[this.index].howl;
-    if (sound.playing()) {
+    if (sound?.playing()) {
       sound.seek(sound.duration() * per);
     }
   }
